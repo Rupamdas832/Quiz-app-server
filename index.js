@@ -21,6 +21,9 @@ app.use("/signup", signupUser)
 const updateUser = require("./Users/updateUser.js")
 app.use("/user", updateUser)
 
+const uploadQuiz = require("./QuizData/uploadQuiz.js")
+app.use("/quiz", uploadQuiz)
+
 
 app.listen(mySecret, () => {
   console.log("SERVER IS running")
