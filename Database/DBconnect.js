@@ -1,6 +1,8 @@
 const mongoose = require("mongoose")
 
-const uri = `mongodb+srv://rupamdas832:9430112253@quiz-data-cluster.zmvyg.mongodb.net/quiz-inventory?retryWrites=true&w=majority`;
+const mySecret = process.env['MongoDBCredentials']
+
+const uri = mySecret;
 
 const initializeDBconnection = async () => {
   try{

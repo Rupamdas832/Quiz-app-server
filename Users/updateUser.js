@@ -20,15 +20,12 @@ router.route("/")
 router.route("/:userId")
   .post(async(req,res) => {
     let {user} = req;
-    const {score, accuracy, quizId} = req.body
+    const {score, accuracy, _id} = req.body
 
     try{
       user.totalScore = user.totalScore + score
       user.totalAccuracy = (user.totalAccuracy === 0 ? accuracy : (user.totalAccuracy + accuracy)/2) 
-      user.quizCompleted.push({quizId: quizId, score: score})
-      /*user.totalScore = 0
-      user.totalAccuracy = 0 
-      user.quizCompleted = []*/
+      user.quizCompleted.push({_id: _id, score: score})
 
       user = await user.save()
       res.status(201).json({success: true, user})

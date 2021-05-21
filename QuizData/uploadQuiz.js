@@ -46,12 +46,12 @@ router.route("/")
   .post(async(req,res) => {
     const {title,img} = req.body;
 
+    const quizzes = await Quiz.find({})
+
     try{
-      const quizzes = await Quiz.find({})
-      
       const newQuiz = new Quiz({
         title: title,
-        quizNo: 1,
+        quizNo: quizzes.length + 1,
         img: img,
         highestScore: 0,
         highScorerName: "",

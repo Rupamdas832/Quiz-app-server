@@ -24,7 +24,7 @@ const userSchema = new Schema({
     required: true
   },
   quizCompleted: {
-    type: [{quizId: String, score: Number}]
+    type: [{_id: String, score: Number}]
   }
 })
 
